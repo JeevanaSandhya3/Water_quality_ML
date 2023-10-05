@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Water Quality </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <style>
+      #banner {
+        height: 360px;
+        width: 100%;
+        object-fit:cover;
+        margin-bottom: 16px;
+        background-color: aqua;
+      }
+      #input {
+            width: 200px;
+            height: 25px;
+            margin: 2px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            background-color: aqua;
+        }
+          
+        
+    </style> 
+     
+     <!--background-color: rgba(255, 255, 128, .5);
+    rgba(0, 128, 122, 0.3);-->
+  </head>
+  <body style ="background-color: #F5F5F5">
+    {% include 'nav.html' %}
+    <h1 class="text-center mt-2 mb-4" > FORECASTING WATER QUALITY</h1>
+    <img class="img-fluid" id="banner" src="http://127.0.0.1:5000/static/1.jpg">
+    <div class="container" >
+        <h2 class="text-align: left; "> About Water Quality </h2>
+        <div class="row" style="margin-bottom:32px">
+            <div class="col-md-12">
+              <p class="lead"> Water is one of the Earth's most vital resources, essential for all forms of life and critical to numerous aspects of human society. The quality of water, determined by its chemical, physical, biological, and radiological characteristics, plays a pivotal role in shaping the health of ecosystems and the well-being of communities. Water quality is a multifaceted concept that reflects the cleanliness, safety, and suitability of water for various purposes, from drinking and irrigation to industrial processes and recreation.</p>
+       
+            </div>
+            <div class="d-none d-md-block col-md-6" >
+              <img src="http://127.0.0.1:5000/static/3.jpg" style="height:320px ;width: 85%; border-radius:4px;" class=" align-right">
+            </div>
+
+            <div class="col-md-6">
+              <p class="lead"> Access to safe drinking-water is essential to health, a basic human right and a component of effective policy for health protection. This is important as a health and development issue at a national, regional and local level. In some regions, it has been shown that investments in water supply and sanitation can yield a net economic benefit, since the reductions in adverse health effects and health care costs outweigh the costs of undertaking the interventions.In the following sections, we will explore whether the given water is portable or not based on it's parameters </p>
+            </div>
+
+        </div>
+         
+        <div style="text-align: left; margin-top: 5%;">
+          <form class="form-container" action="/predict" method="post">
+                <!-- Age -->
+                <!--<label for="ph"> PH Level :</label>
+                <input type="float" id="floatInput"  name="PH Level" min="0" max="14" step="0.01" required />-->
+                <div class="mb-3">
+                  <label for="ph" class="form-label">PH Level</label>
+                  <input type="float" class="form-control" id="floatInput" name="PH Level" aria-describedby="emailHelp" placeholder="Enter the value (example : 6.5)" required >
+                  <div id="emailHelp" class="form-text">Must be between 0-14.</div>
+                </div>
+
+                <!--<label for="TDS">Total Dissolved Solids:</label>
+                <input type="float" id="floatInput"  name="TDS" required /><br><br>-->
+
+                <div class="mb-3">
+                  <label for="TDS" class="form-label">Total Dissolved Solids</label>
+                  <input type="float" class="form-control" id="floatInput" name="TDS"  placeholder="Enter the value (example : 550)" required >
+                </div>
+                <!--<label for="Chloride">CHLORIDE  :</label>
+                <input type="float" id="floatInput"  name="Chloride" required />-->
+                <div class="mb-3">
+                  <label for="Chloride" class="form-label">CHLORIDE</label>
+                  <input type="float" class="form-control" id="floatInput" name="Chloride"  placeholder="Enter the value (example : 50)" required >
+                </div>
+                <!--<label for="sulfate">SULFATE     :</label>
+                <input type="float" id="floatInput"  name="Sulfate" required /><br><br>-->
+                <div class="mb-3">
+                  <label for="sulfate" class="form-label">SULFATE</label>
+                  <input type="float" class="form-control" id="floatInput" name="Sulfate"  placeholder="Enter the value (example : 50)" required >
+                </div>
+                <!--<label for="Fluoride">FLUORIDE    :</label>
+                <input type="float" id="floatInput"  name="Fluoride" required />-->
+                <div class="mb-3">
+                  <label for="Fluoride" class="form-label">FLUORIDE</label>
+                  <input type="float" class="form-control" id="floatInput" name="Fluoride"  placeholder="Enter the value (example : 0.43)" required >
+                </div>
+                <!--<label for="TotalHardness">TOTAL HARDNESS:</label>
+                <input type="float" id="floatInput"  name="TotalHardness" required /><br><br>-->
+                <div class="mb-3">
+                  <label for="TotalHardness" class="form-label">TOTAL HARDNESS</label>
+                  <input type="float" class="form-control" id="floatInput" name="TotalHardness"  placeholder="Enter the value (example : 420)" required >
+                </div>
+
+              <input type="submit" value="Predict" class=" align-center">
+          </form>
+           
+              
+            
+        </div>
+      
+    
+    </div>
+    {% include 'footer.html' %}
+  </body>
+</html>
